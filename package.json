@@ -2,7 +2,7 @@
   "name": "vscode-radio-stations",
   "displayName": "Radio Stations",
   "description": "Listen to radio streams without leaving VS Code.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "shinn-lancelot",
   "license": "MIT",
   "icon": "media/icon.png",

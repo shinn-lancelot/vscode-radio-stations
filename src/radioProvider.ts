@@ -2,6 +2,7 @@ import * as vscode from 'vscode';
 import { loadBundledChannels } from './channels';
 import { Channel } from './types';
 import { styles } from './webview/styles';
+import { statusStyles } from './webview/statusStyles';
 
 export class RadioProvider implements vscode.WebviewViewProvider {
   private view?: vscode.WebviewView;
@@ -173,8 +174,8 @@ export class RadioProvider implements vscode.WebviewViewProvider {
       index: this.selected,
       favoriteOnly: this.playlist === 'favorites'
     }).replace(/</g, '\\u003c');
-    return `<!doctype html><html><head><meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="${csp}"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${styles}</style></head><body><main>
-      <header><span class="logo">${iconSet.radio}</span><div><h1>Radio</h1><p>Live audio, right beside your code.</p></div></header>
+    return `<!doctype html><html><head><meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="${csp}"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${styles}${statusStyles}</style></head><body><main>
+      <header><span class="logo">${iconSet.radio}</span><div><h1>Radio Stations</h1><p>Live audio, right beside your code.</p></div></header>
       <section class="now"><div class="live-dot"></div><span id="nowLabel">Ready</span><strong id="nowName">Select a station</strong><small id="nowDescription">Internet radio</small></section>
       <div class="controls"><button id="prev" aria-label="Previous station" title="Previous station">${iconSet.previous}</button><button id="play" class="play" aria-label="Play / Stop" title="Play / Stop">${iconSet.play}</button><button id="next" aria-label="Next station" title="Next station">${iconSet.next}</button></div>
       <label class="volume">Volume <input id="volume" type="range" min="0" max="1" step="0.01" value="0.8"><span id="volumeValue">80%</span></label>

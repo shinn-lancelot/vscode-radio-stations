@@ -23,6 +23,7 @@
   const list = document.getElementById('channels');
   const play = document.getElementById('play');
   const locate = document.getElementById('locate');
+  const liveDot = document.querySelector('.live-dot');
   const state = { playing: false };
 
   function escapeHtml(value) {
@@ -42,6 +43,7 @@
     document.getElementById('nowName').textContent = current ? current.name : 'Select a station';
     document.getElementById('nowDescription').textContent = current && current.description ? current.description : 'Internet radio';
     document.getElementById('nowLabel').textContent = state.playing ? 'ON AIR' : 'READY';
+    liveDot.classList.toggle('is-on-air', state.playing);
 
     const visible = channels
       .map((channel, i) => ({ channel, i }))
